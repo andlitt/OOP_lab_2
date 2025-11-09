@@ -1,23 +1,37 @@
-from class_Triangle import Triangle
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from money_package import Money_task_2
 
 if __name__ == "__main__":
+    # Создаем объекты Money разными способами
+    m1 = Money_task_2(123.45)
+    m2 = Money_task_2("123.45")
+    m3 = Money_task_2(12345)
+    m4 = Money_task_2([5, 4, 3, 2, 1])
 
-    # Неверно заданы углы
-    print("\n1. Создание через конструктор:")
-    try:
-        triangle1 = Triangle(3, 3, 4, 60, 60, 61)
-    except ValueError as e:
-        print(f"Ошибка: {e} \n")
+    print(f"m1: {m1}")
+    print(f"m2: {m2}")
+    print(f"m3: {m3}")
+    print(f"m4: {m4}\n")
 
-    # Неверно заданы стороны
-    try:
-        triangle2 = Triangle(3, 3, 6, 60, 60, 60)
-    except ValueError as e:
-        print(f"Ошибка: {e} \n")
+    # Тестируем индексацию
+    print(f"m1[0]: {m1[0]}")
+    print(f"m1[1]: {m1[1]}")
+    print(f"m1[2]: {m1[2]}\n")
 
-    print("\n2. Изменение полей через read:")
-    triangle3 = Triangle(4, 4, 4, 60, 60, 60)
-    triangle3.display()
+    # Тестируем размер и количество
+    print(f"m1 размер: {m1.size()}")
+    print(f"m1 количество: {m1.get_count()}\n")
 
-    if triangle3.read():
-        triangle3.display()
+    # Создаем с определенным размером
+    m5 = Money_task_2(123.45, size=10)
+    print(f"m5 размер: {m5.size()}")  # 10
+    print(f"m5 количество: {m5.get_count()}\n")
+
+    # Тестируем изменение через индексацию
+    m6 = Money_task_2(100.00)
+    print(f"Начальное m6: {m6}")
+    m6[0] = 5
+    m6[1] = 0
+    print(f"Измененное m6: {m6}")

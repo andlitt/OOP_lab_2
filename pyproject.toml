@@ -25,13 +25,13 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]  # Изменили с "src" на "."
 
 [tool.taskipy.tasks]
 test = "pytest"
 lint = "ruff check ."
 format = "ruff format ."
-type-check = "mypy src/"
+type-check = "mypy ."
 all-checks = "task test && task lint && task type-check"
 fix = "ruff check --fix . && ruff format ."
 
@@ -55,7 +55,7 @@ disallow_untyped_defs = true
 minversion = "7.0"
 addopts = "-ra -q -p no:warnings"
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = [".", "tasks", "tasks/money_package"]  # Добавили нужные пути
 python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
