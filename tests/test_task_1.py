@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-
-from tasks.class_money import Money, make_money
+from class_Money import Money, make_money
 
 
 def test_constructor():
